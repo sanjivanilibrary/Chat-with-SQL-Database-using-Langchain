@@ -1,3 +1,5 @@
+
+import os
 import streamlit as st
 from pathlib import Path
 from langchain_community.utilities.sql_database import SQLDatabase
@@ -65,8 +67,10 @@ else:
     def configure_db(db_url,my_sql_host=None,my_sql_user=None,my_sql_password=None,my_sql_db=None):
         if db_url==LocalDB:
             # Build absolute path to Student_DB.db
-            dbfilepath = Path(__file__).parent / "Student.db"
-            if not dbfilepath.exists():
+            #dbfilepath = Path(__file__).parent / "Student.db" # For local DB
+            dbfilepath="student.db"
+            if not os.path.exists(dbfilepath)
+            #if not dbfilepath.exists():
                 st.error(f"Database file not found at {dbfilepath}")
                 st.stop()
             creator=lambda:sqlite3.connect(f"file:{dbfilepath}?mode=ro",uri=True)
