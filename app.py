@@ -69,7 +69,7 @@ else:
             # Build absolute path to Student_DB.db
             #dbfilepath = Path(__file__).parent / "Student.db" # For local DB
             dbfilepath="student.db"
-            if not os.path.exists(dbfilepath)
+            if not os.path.exists(dbfilepath):
             #if not dbfilepath.exists():
                 st.error(f"Database file not found at {dbfilepath}")
                 st.stop()
